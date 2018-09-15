@@ -1,0 +1,34 @@
+{
+  "name": "pdfjs",
+  "version": "1.0.0",
+  "description": "Pdfjs implementation",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "jest",
+    "check": "eslint server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhilive/pdfjs.git"
+  },
+  "keywords": [
+    "pdf.js",
+    "promise",
+    "async"
+  ],
+  "author": "Abhishek Srivastava <cs.abhilive@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/abhilive/pdfjs/issues"
+  },
+  "homepage": "https://github.com/abhilive/pdfjs#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "eslint": "^5.6.0",
+    "express": "^4.16.3",
+    "jest": "^23.6.0",
+    "path": "^0.12.7"
+  }
+}

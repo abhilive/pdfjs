@@ -2,11 +2,15 @@
   "name": "pdfjs",
   "version": "1.0.0",
   "description": "Pdfjs implementation",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "jest",
     "check": "eslint server.js"
+  },
+  "nodemonConfig": {
+    "watch": ["server.js", "web"],
+    "ext": "js,html"
   },
   "repository": {
     "type": "git",

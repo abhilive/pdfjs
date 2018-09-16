@@ -48,3 +48,13 @@ loadingTask.promise.then(function(pdf) {
   // PDF loading error
   console.error(reason);
 });
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.getElementById("loadPDf").addEventListener("click", function(){
+    console.log('button clicked', this.getAttribute('action'));
+  });
+  var newCanvas = document.createElement("canvas");
+  newCanvas.setAttribute("id", "the-canvas");
+  newCanvas.setAttribute("class", "blockItem");
+  var bottomDiv = document.getElementById("bottom"); 
+  document.body.insertBefore(newCanvas, bottomDiv); 
+});

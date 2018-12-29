@@ -1,22 +1,84 @@
-<html>
+<!doctype html>
     <head>
-        <script src="pdf.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> Mozilla PDFJs Example </title>
+        <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+        .panel {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+        }
+    </style>
+        <script src="pdfjs-dist/build/pdf.js"></script>
         <script src="script.js"></script>
-        <style type="text/css">
-            .blockItem {
-                display: block;
-            }
-        </style>
     </head>
     <body>
-        <h1>PDF.js 'Hello, world!' example</h1>
-        <button id="loadPDf" action="nextStep" type="button">Get another pdf</button>
-        <!--<canvas id="the-canvas"></canvas>-->
-        <div id="bottom">Page Bottom</div>
+        <!-- <button
+            id="loadPDf"
+            action="nextStep"
+            type="button"
+        >
+            Get another pdf
+        </button> -->
+        <!-- <canvas id="the-canvas"></canvas> -->
         <!-- <script type="text/javascript">
-        window.addEventListener("load", function(event) {
-            
-        });
-        </script> -->
+            window.addEventListener("load", function(event) {
+                
+            });
+            </script> -->
+        <h2>PDF.js 'Hello, world!' example</h2>
+
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+            <div class="pdf-container">
+                <canvas id="the-canvas-first"></canvas>
+            </div>
+        </div>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+            <div class="pdf-container">
+                <canvas id="the-canvas-second"></canvas>
+            </div>
+        </div>
+
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+            <div class="pdf-container">
+                <canvas id="the-canvas-third"></canvas>
+            </div>
+        </div>
+
+        <script>
+        var i, acc = document.getElementsByClassName("accordion");
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+        </script>
     </body>
 </html>

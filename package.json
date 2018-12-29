@@ -9,7 +9,10 @@
     "check": "eslint server.js"
   },
   "nodemonConfig": {
-    "watch": ["server.js", "web"],
+    "watch": [
+      "server.js",
+      "web"
+    ],
     "ext": "js,html"
   },
   "repository": {
@@ -33,6 +36,7 @@
     "eslint": "^5.6.0",
     "express": "^4.16.3",
     "jest": "^23.6.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pdfjs-dist": "^2.0.489"
   }
 }

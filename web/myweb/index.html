@@ -25,10 +25,12 @@
             overflow: hidden;
         }
     </style>
-        <script src="pdfjs-dist/build/pdf.js"></script>
+        <!-- <script src="pdfjs-dist/build/pdf.js"></script> -->
+        <script src="/build/webpack/main.bundle.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
+        <canvas id="theCanvas"></canvas>
         <!-- <button
             id="loadPDf"
             action="nextStep"

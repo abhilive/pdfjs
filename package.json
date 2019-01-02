@@ -1,42 +1,46 @@
 {
-  "name": "pdfjs",
-  "version": "1.0.0",
-  "description": "Pdfjs implementation",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "test": "jest",
-    "check": "eslint server.js"
-  },
-  "nodemonConfig": {
-    "watch": [
-      "server.js",
-      "web"
-    ],
-    "ext": "js,html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abhilive/pdfjs.git"
-  },
-  "keywords": [
-    "pdf.js",
-    "promise",
-    "async"
-  ],
-  "author": "Abhishek Srivastava <cs.abhilive@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/abhilive/pdfjs/issues"
-  },
-  "homepage": "https://github.com/abhilive/pdfjs#readme",
-  "devDependencies": {
-    "nodemon": "^1.18.4"
-  },
-  "dependencies": {
-    "eslint": "^5.6.0",
-    "express": "^4.16.3",
-    "jest": "^23.6.0",
-    "path": "^0.12.7",
-    "pdfjs-dist": "^2.0.489"
-  }
+	"name": "pdfjs",
+	"version": "1.0.0",
+	"description": "Pdfjs implementation",
+	"private": true,
+	"scripts": {
+		"start": "node server.js",
+		"test": "jest",
+		"check": "eslint server.js",
+		"build": "webpack"
+	},
+	"nodemonConfig": {
+		"watch": [
+			"server.js",
+			"web"
+		],
+		"ext": "js,html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/abhilive/pdfjs.git"
+	},
+	"keywords": [
+		"pdf.js",
+		"promise",
+		"async"
+	],
+	"author": "Abhishek Srivastava <cs.abhilive@gmail.com>",
+	"bugs": {
+		"url": "https://github.com/abhilive/pdfjs/issues"
+	},
+	"homepage": "https://github.com/abhilive/pdfjs#readme",
+	"devDependencies": {
+		"@types/pdfjs-dist": "^0.1.2",
+		"nodemon": "^1.18.4",
+		"webpack": "^4.28.3",
+		"webpack-cli": "^3.1.2"
+	},
+	"dependencies": {
+		"eslint": "^5.6.0",
+		"express": "^4.16.3",
+		"jest": "^23.6.0",
+		"path": "^0.12.7",
+		"pdfjs-dist": "^2.0.489"
+	}
 }

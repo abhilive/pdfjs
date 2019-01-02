@@ -5,9 +5,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use('/', express.static('web/myweb/'));
-/* app.get('/', function (req,res) {
+/*app.get('/', function (req,res) {
      res.sendFile(path.join(__dirname + '/web/myweb/index.html'));
- }); */
+});*/
 
 app.listen(PORT, () => {
 	console.log(`App is listening on port: ${PORT}`);

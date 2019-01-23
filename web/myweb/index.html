@@ -19,14 +19,14 @@
             background-color: #ccc;
         }
         .panel {
-            padding: 0 18px;
+            /*padding: 0 18px;*/
             display: none;
             background-color: white;
             overflow: hidden;
         }
     </style>
-        <!-- <script src="pdfjs-dist/build/pdf.js"></script> -->
-        <script src="/build/webpack/main.bundle.js"></script>
+        <script src="pdfjs-dist/build/pdf.js"></script>
+        <!-- <script src="/build/webpack/main.bundle.js"></script> -->
         <script src="script.js"></script>
     </head>
     <body>
@@ -47,22 +47,22 @@
         <h2>PDF.js 'Hello, world!' example</h2>
 
         <button class="accordion">Section 1</button>
-        <div class="panel">
-            <div class="pdf-container">
+        <div id="panel-first" class="panel">
+            <div id="pdf-container-first">
                 <canvas id="the-canvas-first"></canvas>
             </div>
         </div>
 
         <button class="accordion">Section 2</button>
-        <div class="panel">
-            <div class="pdf-container">
+        <div id="panel-second" class="panel">
+            <div id="pdf-container-second">
                 <canvas id="the-canvas-second"></canvas>
             </div>
         </div>
 
         <button class="accordion">Section 3</button>
-        <div class="panel">
-            <div class="pdf-container">
+        <div id="panel-third" class="panel">
+            <div id="pdf-container-third">
                 <canvas id="the-canvas-third"></canvas>
             </div>
         </div>

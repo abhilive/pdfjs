@@ -45,32 +45,47 @@ document.addEventListener('DOMContentLoaded', function(event) {
 			};
 			this.renderPage = function(pageNum) {
 				var _this = this;
+				var mainContainer = document.getElementById('panel-' + section);
+				var container = document.getElementById(
+					'pdf-container-' + section
+				);
 				this.pdfDoc.getPage(pageNum).then(function(page) {
 					//var viewport = page.getViewport(scale);
 					var section = _this.section;
 
 					// Prepare canvas using PDF page dimensions
-					var canvas = document.getElementById(
-						'the-canvas-' + section
+					var canvas = document.createElement('canvas');
+					canvas.setAttribute(
+						'id',
+						'the-canvas-' + section + '-' + pageNum
 					);
-					var viewport = page.getViewport(
+					container.append(canvas);
+					/*var viewport = page.getViewport(
 						document.getElementsByClassName('pdf-container')[0]
 							.offsetWidth / page.getViewport(scale).width
-					);
+					);*/
+					//var viewport = page.getViewport(scale);
 					var context = canvas.getContext('2d');
-					canvas.height = viewport.height;
-					canvas.width = viewport.width;
+
+					var desiredWidth = mainContainer.parentElement.offsetWidth;
+					var viewport = page.getViewport(1.0);
+					var scaleX = desiredWidth / viewport.width;
+					var scaledViewport = page.getViewport(scaleX);
+					console.log('scale: ', scale, ' scaleX: ', scaleX);
+					canvas.height = scaledViewport.height;
+					canvas.width = scaledViewport.width;
 					// Render PDF page into canvas context
 					var renderContext = {
 						canvasContext: context,
-						viewport: viewport,
+						viewport: scaledViewport,
 					};
 					var renderTask = page.render(renderContext);
-					console.log('pdfDoc.numPages: ', _this.pdfDoc.numPages);
+					console.log('pdfDoc.currentPage: ', pageNum);
 					// Wait for rendering to finish
 					renderTask.promise.then(function() {
 						if (pageNum < _this.pdfDoc.numPages) {
-							//renderPage(pageNumPending);
+							pageNumPending = pageNum + 1;
+							_this.renderPage(pageNumPending);
 						}
 					});
 				});
@@ -90,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 		var pdf3 = new createPDF(pdfUrls.url3, pageNum, 'third');
 
 		setTimeout(pdf1.callPDF(), 0);
-		setTimeout(pdf2.callPDF(), 0);
-		setTimeout(pdf3.callPDF(), 0);
+		//setTimeout(pdf2.callPDF(), 0);
+		//setTimeout(pdf3.callPDF(), 0);
 	})();
 
 	/*function delayedLog(index, delay) {
